@@ -6,13 +6,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5.0f;
     [SerializeField] private float jumpForce = 5.0f;
 
+
     private Rigidbody2D rb;
     private bool isGrounded = true;
     private bool hasDoubleJumped = false;
+    private Animator anim;
+    
+    private const string ANIM_IDLE = "idle";
+    private const string ANIM_JUMP = "jump";
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -26,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             hasDoubleJumped = false;
+            anim.Play(ANIM_IDLE);
         }
     }
 
@@ -79,5 +87,6 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         isGrounded = false;
+        anim.Play(ANIM_JUMP);
     }
 }
