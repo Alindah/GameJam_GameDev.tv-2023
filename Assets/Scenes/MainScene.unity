@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &130238224
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5394,6 +5394,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1360734340780293066, guid: b92dbadee87520042b8cd15f1c41535c, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360734340780293066, guid: b92dbadee87520042b8cd15f1c41535c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360734340780293066, guid: b92dbadee87520042b8cd15f1c41535c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360734340780293066, guid: b92dbadee87520042b8cd15f1c41535c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5504027545621250884, guid: b92dbadee87520042b8cd15f1c41535c, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -5524,6 +5540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rainbow
       objectReference: {fileID: 0}
+    - target: {fileID: 393365777354048041, guid: 516643f0a2b142949a4a08dde9dafb34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5760471476349103947, guid: 516643f0a2b142949a4a08dde9dafb34, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -5571,6 +5591,18 @@ PrefabInstance:
     - target: {fileID: 6068929840045567333, guid: 516643f0a2b142949a4a08dde9dafb34, type: 3}
       propertyPath: m_Color.a
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068929840045567333, guid: 516643f0a2b142949a4a08dde9dafb34, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068929840045567333, guid: 516643f0a2b142949a4a08dde9dafb34, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068929840045567333, guid: 516643f0a2b142949a4a08dde9dafb34, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
