@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5.0f;
+    [Tooltip("How high the player jumps")]
     [SerializeField] private float jumpForce = 5.0f;
-
 
     private Rigidbody2D rb;
     private bool isGrounded = true;
@@ -28,10 +29,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Cloud"))
+        if (collision.gameObject.CompareTag("Cloud") && rb.velocityY <= 0)
         {
-            isGrounded = true;
             hasDoubleJumped = false;
+            isGrounded = true;
+            rb.velocity = Vector2.zero;
             anim.Play(ANIM_IDLE);
         }
     }
@@ -85,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        isGrounded = false;
         anim.Play(ANIM_JUMP);
+        isGrounded = false;
     }
 }
