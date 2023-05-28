@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -7,14 +8,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5.0f;
     [Tooltip("How high the player jumps")]
     [SerializeField] private float jumpForce = 5.0f;
+    [Tooltip("How long to disable collider for cloud after player drops down")]
+    [SerializeField] private float dropSeconds = 0.4f;
 
     private Rigidbody2D rb;
     private bool isGrounded = true;
     private bool hasDoubleJumped = false;
+    // private bool hasDropped = false;
     private Animator anim;
     
     private const string ANIM_IDLE = "idle";
     private const string ANIM_JUMP = "jump";
+
+    private const string LAYER_DEFAULT = "Default";
+    private const string LAYER_PLAYERJUMP = "PlayerJumping";
 
     private void Start()
     {
@@ -25,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         MovePlayer();
+
+        if (rb.velocityY > 0)
+            gameObject.layer = LayerMask.NameToLayer(LAYER_PLAYERJUMP);
+        else
+            gameObject.layer = LayerMask.NameToLayer(LAYER_DEFAULT);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -44,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         // Jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetAxis("Vertical") > 0)
         {
             if (isGrounded)
             {
@@ -72,6 +84,16 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(Vector3.zero);
         }
+
+        /*
+        // Vertical movement
+        if (Input.GetAxis("Vertical") < 0 && isGrounded)
+        {
+            hasDropped = true;
+            gameObject.layer = LayerMask.NameToLayer(LAYER_PLAYERJUMP);
+            StartCoroutine(nameof(DropDown));
+        }
+        */
     }
 
     /// <summary>
@@ -90,4 +112,13 @@ public class PlayerMovement : MonoBehaviour
         anim.Play(ANIM_JUMP);
         isGrounded = false;
     }
+
+    /*
+    private IEnumerator DropDown()
+    {
+        yield return new WaitForSeconds(dropSeconds);
+        gameObject.layer = LayerMask.NameToLayer(LAYER_DEFAULT);
+        hasDropped = false;
+    }
+    */
 }

@@ -5265,6 +5265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5.5
   jumpForce: 10
+  dropSeconds: 0.3
 --- !u!61 &1777963203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5427,6 +5428,10 @@ PrefabInstance:
     - target: {fileID: 2930082968542180057, guid: 166ce5cb64d6d1645961730b21520bce, type: 3}
       propertyPath: m_Name
       value: Cloud_Small
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930082968542180057, guid: 166ce5cb64d6d1645961730b21520bce, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
