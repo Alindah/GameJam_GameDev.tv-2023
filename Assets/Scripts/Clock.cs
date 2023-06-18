@@ -8,17 +8,20 @@ public class Clock : MonoBehaviour
 
     private Animator anim;
     private Rigidbody2D rb;
+    private GameObject player;
     private bool isRinging = false;
     private bool playerIsTouching = false;
 
     private const string ANIM_REST = "clock_idle";
     private const string ANIM_RING = "clock_ring";
     private const string PLAYER_TAG = "Player";
+    private const string PLAYER_OBJ_NAME = "Player";
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.Find(PLAYER_OBJ_NAME);
         Invoke(nameof(Ring), 0.0f);
     }
 
@@ -59,6 +62,10 @@ public class Clock : MonoBehaviour
     private void AnalyzePlayerContact()
     {
         if (playerIsTouching && (Input.GetKeyDown(KeyCode.Space) || Input.GetAxis("Vertical") > 0))
-            rb.gravityScale = gravityScale;
+        {
+            // Player may only disable a clock if landing on it
+            if (player.GetComponent<Rigidbody2D>().velocityY < 0)
+                rb.gravityScale = gravityScale;
+        }
     }
 }
