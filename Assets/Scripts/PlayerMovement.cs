@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded = true;
     private bool hasDoubleJumped = false;
-    // private bool hasDropped = false;
+    private bool hasDropped = false;
     private Animator anim;
     
     private const string ANIM_IDLE = "idle";
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.velocityY > 0)
             gameObject.layer = LayerMask.NameToLayer(LAYER_PLAYERJUMP);
-        else
+        else if (!hasDropped)
             gameObject.layer = LayerMask.NameToLayer(LAYER_DEFAULT);
     }
 
@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(Vector3.zero);
         }
 
-        /*
+        
         // Vertical movement
         if (Input.GetAxis("Vertical") < 0 && isGrounded)
         {
@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer(LAYER_PLAYERJUMP);
             StartCoroutine(nameof(DropDown));
         }
-        */
+        
     }
 
     /// <summary>
@@ -113,12 +113,11 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = false;
     }
 
-    /*
+    
     private IEnumerator DropDown()
     {
         yield return new WaitForSeconds(dropSeconds);
         gameObject.layer = LayerMask.NameToLayer(LAYER_DEFAULT);
         hasDropped = false;
     }
-    */
 }
