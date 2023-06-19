@@ -137,6 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ringDuration: 2
   restDuration: 2
+  wakeRate: 20
+  gravityScale: 3
 --- !u!50 &4379585591422514345
 Rigidbody2D:
   serializedVersion: 4

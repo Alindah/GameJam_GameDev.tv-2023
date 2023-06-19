@@ -68,7 +68,7 @@ public class Clock : MonoBehaviour
     {
         // If clock is ringing, add to player wakeness
         if (collision.CompareTag(PLAYER_HITBOX_TAG) && isRinging)
-            playerWakeness.AddWakeness(wakeRate * Time.deltaTime);
+            playerWakeness.AddWakeness(wakeRate);
     }
 
     // Determine if player is turning off clock

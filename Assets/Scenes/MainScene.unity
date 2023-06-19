@@ -5466,6 +5466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wakenessCapacity: 100
+  recoverRate: 4
+  recoverDelay: 1.5
 --- !u!1001 &174414405017647352
 PrefabInstance:
   m_ObjectHideFlags: 0
