@@ -9,6 +9,8 @@ public class PlayerWakeness : MonoBehaviour
     [Tooltip("Delay before player wakeness drains")]
     [SerializeField] private float recoverDelay = 1.5f;
 
+    [SerializeField] private GameStateHandler gameStateHandler;
+
     private float wakeness = 0.0f;
     private bool canRecover = true;
 
@@ -26,7 +28,7 @@ public class PlayerWakeness : MonoBehaviour
         wakeness += amount * Time.deltaTime;
 
         if (wakeness >= wakenessCapacity)
-            Debug.Log("Game over!");
+            gameStateHandler.LoseGame();
 
         Invoke(nameof(EnableRecover), recoverDelay);
     }
