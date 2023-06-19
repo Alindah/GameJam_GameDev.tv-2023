@@ -5948,10 +5948,6 @@ PrefabInstance:
       value: LoseScreen
       objectReference: {fileID: 0}
     - target: {fileID: 242774674213728153, guid: 87155b828622c92468be5d213df1ae79, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 242774674213728153, guid: 87155b828622c92468be5d213df1ae79, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -5999,30 +5995,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2406164906109097187, guid: 87155b828622c92468be5d213df1ae79, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2535822284889577121, guid: 87155b828622c92468be5d213df1ae79, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4659433557467083808, guid: 87155b828622c92468be5d213df1ae79, type: 3}
-      propertyPath: m_Size.x
-      value: 13.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 4659433557467083808, guid: 87155b828622c92468be5d213df1ae79, type: 3}
-      propertyPath: m_Size.y
-      value: 9.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 4659433557467083808, guid: 87155b828622c92468be5d213df1ae79, type: 3}
-      propertyPath: m_Sprite
+    - target: {fileID: 7819350804445375620, guid: 87155b828622c92468be5d213df1ae79, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: -6017304878180445874, guid: c1c6a1d7c4ec0224abfd622c71962a32, type: 3}
-    - target: {fileID: 4659433557467083808, guid: 87155b828622c92468be5d213df1ae79, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1608913862}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
