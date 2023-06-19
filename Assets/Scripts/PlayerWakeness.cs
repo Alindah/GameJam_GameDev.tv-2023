@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerWakeness : MonoBehaviour
 {
@@ -10,9 +11,15 @@ public class PlayerWakeness : MonoBehaviour
     [SerializeField] private float recoverDelay = 1.5f;
 
     [SerializeField] private GameStateHandler gameStateHandler;
+    [SerializeField] private Slider wakeSlider;
 
     private float wakeness = 0.0f;
     private bool canRecover = true;
+
+    private void Start()
+    {
+        wakeSlider.maxValue = wakenessCapacity;
+    }
 
     private void Update()
     {
@@ -26,6 +33,7 @@ public class PlayerWakeness : MonoBehaviour
 
         canRecover = false;
         wakeness += amount * Time.deltaTime;
+        wakeSlider.value = wakeness;
 
         if (wakeness >= wakenessCapacity)
             gameStateHandler.LoseGame();
@@ -41,6 +49,9 @@ public class PlayerWakeness : MonoBehaviour
     private void Recover()
     {
         if (canRecover)
+        {
             wakeness = wakeness > 0.0f ? wakeness - recoverRate * Time.deltaTime : 0.0f;
+            wakeSlider.value = wakeness;
+        }
     }
 }
